@@ -1,0 +1,13 @@
+node_modules/
+package-lock.json
+composer.lock
+.well-known/
+assets/config.json
+config.json
+.cache/
+_temp/
+__temp/
+tmp/
+_old_theme/
+assets/data.sql
+docker-compose.yaml

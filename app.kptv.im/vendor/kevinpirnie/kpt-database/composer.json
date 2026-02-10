@@ -1,0 +1,78 @@
+{
+    "name": "kevinpirnie/kpt-database",
+    "description": "A modern, fluent PHP database wrapper built on top of PDO, providing an elegant and secure way to interact with MySQL databases",
+    "type": "library",
+    "keywords": [
+        "database",
+        "pdo",
+        "mysql",
+        "fluent",
+        "orm",
+        "sql",
+        "query-builder"
+    ],
+    "homepage": "https://github.com/kpirnie/kp-database",
+    "license": "MIT",
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://www.paypal.biz/kevinpirnie"
+        },
+        {
+            "type": "ko-fi",
+            "url": "https://ko-fi.com/kevinpirnie"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Kevin Pirnie",
+            "email": "me@kpirnie.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "ext-pdo": "*",
+        "kevinpirnie/kpt-logger": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "archive": {
+        "exclude": [
+            "/tests",
+            "/coverage",
+            "/.github",
+            "/.phpunit.cache",
+            "phpunit.xml"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "KPT\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KPT\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "cs-check": "phpcs src --standard=PSR12",
+        "cs-fix": "phpcbf src --standard=PSR12",
+        "test": "phpunit --configuration phpunit.xml --no-coverage",
+        "test-coverage": "phpunit --configuration phpunit.xml --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/kpirnie/kp-database/issues",
+        "source": "https://github.com/kpirnie/kp-database"
+    }
+}

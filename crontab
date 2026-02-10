@@ -1,0 +1,5 @@
+# Sync all providers every 6 hours
+0 */6 * * * /usr/local/bin/php /var/www/html/sync/kptv-sync.php sync >> /var/log/kptv-sync.log 2>&1
+
+# Check for missing streams daily at 3 AM
+0 3 * * * /usr/local/bin/php /var/www/html/sync/kptv-sync.php testmissing >> /var/log/kptv-missing.log 2>&1

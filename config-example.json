@@ -1,0 +1,36 @@
+{
+    "appname": "kptv_app",
+    "debug_app": true,
+    "mainuri": "",
+    "xcuri": "",
+    "mainkey": "",
+    "mainsecret": "",
+    "database": {
+        "tbl_prefix": "kptv_",
+        "server": "localhost",
+        "schema": "",
+        "username": "",
+        "password": "",
+        "charset": "utf8mb4",
+        "collation": "utf8mb4_unicode_ci",
+        "persistent": true
+    },
+    "user-agent": "VLC/3.0.18 LibVLC/3.0.18",
+    "smtp": {
+        "debug": false,
+        "server": "",
+        "port": 587,
+        "username": "",
+        "password": "",
+        "security": "tls",
+        "fromname": "",
+        "fromemail": "",
+        "forcehtml": true,
+        "signature": ""
+    },
+    "recaptcha": {
+        "sitekey": "",
+        "secretkey": "",
+        "expectedhostname": ""
+    }
+}

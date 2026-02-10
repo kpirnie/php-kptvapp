@@ -1,0 +1,27 @@
+{
+    "name": "kpt-datatables",
+    "version": "1.2.0",
+    "description": "Build tools for KPT DataTables",
+    "private": true,
+    "scripts": {
+        "build:tailwind": "npx tailwindcss -i ./src/assets/css/themes/tailwind.src.css -o ./src/assets/css/themes/tailwind.css --minify",
+        "watch:tailwind": "npx tailwindcss -i ./src/assets/css/themes/tailwind.src.css -o ./src/assets/css/themes/tailwind.css --watch",
+        "dev:tailwind": "npx tailwindcss -i ./src/assets/css/themes/tailwind.src.css -o ./src/assets/css/themes/tailwind.css",
+        "build:js": "node build.js js",
+        "build:css": "node build.js css",
+        "build": "npm run build:tailwind && node build.js all",
+        "dev": "npm run dev:tailwind && node build.js all"
+    },
+    "devDependencies": {
+        "tailwindcss": "^3.4.0",
+        "terser": "^5.31.0",
+        "clean-css": "^5.3.0"
+    },
+    "keywords": [
+        "datatables",
+        "tailwind",
+        "css"
+    ],
+    "author": "Kevin Pirnie <me@kpirnie.com>",
+    "license": "MIT"
+}

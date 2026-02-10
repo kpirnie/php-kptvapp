@@ -1,0 +1,85 @@
+{
+    "name": "kpirnie/kpt-router",
+    "description": "A comprehensive PHP routing library with middleware support, rate limiting, view rendering, and controller resolution capabilities",
+    "type": "library",
+    "keywords": [
+        "php",
+        "router",
+        "routing",
+        "middleware",
+        "rate-limiting",
+        "mvc",
+        "framework",
+        "http",
+        "web",
+        "api",
+        "rest",
+        "views",
+        "controllers",
+        "caching"
+    ],
+    "homepage": "https://github.com/kpirnie/kpt-router",
+    "license": "MIT",
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://www.paypal.biz/kevinpirnie"
+        },
+        {
+            "type": "ko-fi",
+            "url": "https://ko-fi.com/kevinpirnie"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Kevin Pirnie",
+            "email": "me@kpirnie.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.4",
+        "kevinpirnie/kpt-logger": "^1.0",
+        "kevinpirnie/kpt-cache": "^1.0"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.6"
+    },
+    "suggest": {
+        "ext-redis": "Required for Redis-based rate limiting and caching",
+        "predis/predis": "Alternative Redis client if ext-redis is not available"
+    },
+    "autoload": {
+        "psr-4": {
+            "KPT\\": "src/"
+        },
+        "classmap": [
+            "src/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KPT\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist"
+    },
+    "scripts": {
+        "cs-check": "phpcs src --standard=PSR12",
+        "cs-fix": "phpcbf src --standard=PSR12",
+        "quality": [
+            "@cs-check",
+            "@test"
+        ]
+    },
+    "support": {
+        "issues": "https://github.com/kpirnie/kpt-router/issues",
+        "source": "https://github.com/kpirnie/kpt-router",
+        "docs": "https://github.com/kpirnie/kpt-router/blob/main/README.md"
+    }
+}

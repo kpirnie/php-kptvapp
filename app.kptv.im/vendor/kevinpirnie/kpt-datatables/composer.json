@@ -1,0 +1,77 @@
+{
+    "name": "kevinpirnie/kpt-datatables",
+    "description": "Advanced PHP DataTables library with CRUD operations, search, sorting, pagination, bulk actions, and multi-framework theme support (UIKit3, Bootstrap 5, Tailwind, Plain)",
+    "type": "library",
+    "keywords": [
+        "datatables",
+        "pdo",
+        "mysql",
+        "fluent",
+        "orm",
+        "sql",
+        "query-builder",
+        "uikit",
+        "bootstrap",
+        "tailwind"
+    ],
+    "homepage": "https://github.com/kpirnie/kp-datatables",
+    "license": "MIT",
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://www.paypal.biz/kevinpirnie"
+        },
+        {
+            "type": "ko-fi",
+            "url": "https://ko-fi.com/kevinpirnie"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Kevin Pirnie",
+            "email": "me@kpirnie.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "kevinpirnie/kpt-database": "^1.0",
+        "kevinpirnie/kpt-logger": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0 || ^11.0",
+        "phpstan/phpstan": "^1.10",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "KPT\\": "src/class/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KPT\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit tests",
+        "test-coverage": "phpunit tests --coverage-html coverage --coverage-filter src",
+        "cs-check": "phpcs src --standard=PSR12 --ignore=*.js,*.css -n",
+        "cs-fix": "phpcbf src --standard=PSR12 --ignore=*.js,*.css -n",
+        "build": "npm run build",
+        "build-js": "npm run build:js",
+        "build-css": "npm run build:css",
+        "build-tailwind": "npm run build:tailwind"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/kpirnie/kp-datatables/issues",
+        "source": "https://github.com/kpirnie/kp-datatables"
+    }
+}

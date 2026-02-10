@@ -1,0 +1,15 @@
+services:
+  kptv:
+    image: kpirnie/kptv-app:latest
+    container_name: kptv-stream-manager
+    ports:
+      - "8080:80"
+    volumes:
+      - kptv-data:/var/lib/mysql
+      # Optional: Mount custom config and crontab
+      - ./config.json:/var/www/html/assets/config.json
+      - ./crontab:/etc/crontabs/root
+    restart: unless-stopped
+
+volumes:
+  kptv-data:

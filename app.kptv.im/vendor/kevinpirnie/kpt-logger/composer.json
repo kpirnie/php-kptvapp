@@ -1,0 +1,66 @@
+{
+    "name": "kevinpirnie/kpt-logger",
+    "description": "Simple Universal Application Logger for PHP with configurable output destinations and four standard log levels",
+    "type": "library",
+    "keywords": [
+        "logger",
+        "logging",
+        "debug",
+        "error",
+        "warning",
+        "info",
+        "stack-trace",
+        "file-logging",
+        "system-log"
+    ],
+    "homepage": "https://github.com/kpirnie/kpt-logger",
+    "license": "MIT",
+    "funding": [
+        {
+            "type": "paypal",
+            "url": "https://www.paypal.biz/kevinpirnie"
+        },
+        {
+            "type": "ko-fi",
+            "url": "https://ko-fi.com/kevinpirnie"
+        }
+    ],
+    "authors": [
+        {
+            "name": "Kevin Pirnie",
+            "email": "me@kpirnie.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.4"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "KPT\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KPT\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "cs-check": "phpcs src --standard=PSR12",
+        "cs-fix": "phpcbf src --standard=PSR12"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/kpirnie/kpt-logger/issues",
+        "source": "https://github.com/kpirnie/kpt-logger"
+    }
+}

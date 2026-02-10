@@ -1,0 +1,40 @@
+{
+    "name": "kevinpirnie/kp-kptv-filter-app",
+    "description": "KPTV Stream Manager - IPTV organization and management system",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Kevin C. Pirnie",
+            "email": "iam@kevinpirnie.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "controllers"
+        ],
+        "psr-4": {
+            "Kptv\\IptvSync\\": "sync/src/"
+        }
+    },
+    "require": {
+        "php": ">=8.4",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-openssl": "*",
+        "ext-pdo": "*",
+        "guzzlehttp/guzzle": "^7.10",
+        "kevinpirnie/kpt-datatables": "dev-main",
+        "kevinpirnie/kpt-router": "^1.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "platform": {
+            "php": "8.4"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

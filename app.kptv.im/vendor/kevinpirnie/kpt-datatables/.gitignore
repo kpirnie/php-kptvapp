@@ -1,0 +1,26 @@
+# Composer
+/vendor/
+composer.lock
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+/coverage/
+/.phpunit.result.cache
+
+# Cache
+/cache/
+*.cache
+
+*Zone.Identifier*
+
+node_modules/

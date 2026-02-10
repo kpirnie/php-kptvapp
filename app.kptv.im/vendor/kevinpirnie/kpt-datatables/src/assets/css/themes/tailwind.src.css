@@ -1,0 +1,338 @@
+/**
+ * DataTables Tailwind Theme - Source File
+ * 
+ * This file should be compiled using Tailwind CSS.
+ * See tailwind.config.js for configuration.
+ * 
+ * @since   1.1.0
+ * @author  Kevin Pirnie <me@kpirnie.com>
+ * @package KPT/DataTables
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === COMPONENT LAYER === */
+@layer components {
+
+    /* Container */
+    .kp-dt-container-tailwind {
+        @apply font-sans text-gray-600 text-base leading-normal;
+    }
+
+    /* Table */
+    .kp-dt-table-tailwind {
+        @apply w-full border-collapse;
+    }
+
+    .kp-dt-table-tailwind th {
+        @apply px-3 py-4 text-left text-xs font-bold uppercase text-gray-800 border-b border-gray-200;
+    }
+
+    .kp-dt-table-tailwind td {
+        @apply px-3 py-4 text-left align-top;
+    }
+
+    .kp-dt-table-tailwind tbody tr {
+        @apply transition-colors duration-100;
+    }
+
+    .kp-dt-table-striped-tailwind tbody tr:nth-of-type(odd) {
+        @apply bg-gray-50;
+    }
+
+    .kp-dt-table-hover-tailwind tbody tr:hover {
+        @apply bg-yellow-50;
+    }
+
+    /* Sortable header */
+    .kp-dt-sortable-header-tailwind {
+        @apply cursor-pointer select-none;
+    }
+
+    .kp-dt-sortable-header-tailwind:hover {
+        @apply text-blue-500;
+    }
+
+    /* Forms */
+    .kp-dt-input-tailwind {
+        @apply block w-full px-3 py-2.5 bg-white text-gray-600 border border-gray-200 rounded transition-colors duration-100;
+    }
+
+    .kp-dt-input-tailwind:focus {
+        @apply outline-none border-blue-500;
+    }
+
+    .kp-dt-select-tailwind {
+        @apply block w-full px-3 py-2.5 bg-white text-gray-600 border border-gray-200 rounded transition-colors duration-100;
+    }
+
+    .kp-dt-select-tailwind:focus {
+        @apply outline-none border-blue-500;
+    }
+
+    .kp-dt-textarea-tailwind {
+        @apply block w-full px-3 py-2.5 bg-white text-gray-600 border border-gray-200 rounded transition-colors duration-100 resize-y;
+    }
+
+    .kp-dt-textarea-tailwind:focus {
+        @apply outline-none border-blue-500;
+    }
+
+    .kp-dt-checkbox-tailwind {
+        @apply w-4 h-4 mr-2 align-middle;
+    }
+
+    .kp-dt-radio-tailwind {
+        @apply w-4 h-4 mr-2 align-middle;
+    }
+
+    .kp-dt-form-label-tailwind {
+        @apply block mb-1.5 font-semibold text-gray-800;
+    }
+
+    .kp-dt-form-controls-tailwind {
+        @apply mb-5;
+    }
+
+    /* Buttons */
+    .kp-dt-button-tailwind {
+        @apply inline-block px-6 py-2 text-sm font-normal text-center uppercase align-middle border border-transparent rounded cursor-pointer transition-colors duration-100 bg-gray-100 text-gray-600;
+    }
+
+    .kp-dt-button-tailwind:hover {
+        @apply bg-gray-200;
+    }
+
+    .kp-dt-button-primary-tailwind {
+        @apply bg-blue-500 text-white border-blue-500;
+    }
+
+    .kp-dt-button-primary-tailwind:hover {
+        @apply bg-blue-600;
+    }
+
+    .kp-dt-button-danger-tailwind {
+        @apply bg-red-500 text-white border-red-500;
+    }
+
+    .kp-dt-button-danger-tailwind:hover {
+        @apply bg-red-600;
+    }
+
+    .kp-dt-button-tailwind:disabled {
+        @apply opacity-50 cursor-not-allowed;
+    }
+
+    .kp-dt-button-small-tailwind {
+        @apply px-4 py-1 text-xs;
+    }
+
+    .kp-dt-button-group-tailwind {
+        @apply inline-flex;
+    }
+
+    .kp-dt-button-group-tailwind>.kp-dt-button-tailwind:not(:first-child) {
+        @apply rounded-l-none;
+    }
+
+    .kp-dt-button-group-tailwind>.kp-dt-button-tailwind:not(:last-child) {
+        @apply rounded-r-none border-r-0;
+    }
+
+    /* Icon Links */
+    .kp-dt-icon-link-tailwind {
+        @apply inline-flex items-center justify-center w-5 h-5 text-gray-400 cursor-pointer transition-colors duration-100;
+    }
+
+    .kp-dt-icon-link-tailwind:hover {
+        @apply text-gray-600;
+    }
+
+    .kp-dt-icon-link-tailwind[disabled] {
+        @apply opacity-50 cursor-not-allowed;
+    }
+
+    /* Pagination */
+    .kp-dt-pagination-tailwind {
+        @apply flex flex-wrap items-center p-0 m-0 list-none;
+    }
+
+    .kp-dt-pagination-tailwind>li>a,
+    .kp-dt-pagination-tailwind>li>span {
+        @apply block px-2.5 py-1.5 text-gray-400 no-underline transition-colors duration-100;
+    }
+
+    .kp-dt-pagination-tailwind>li>a:hover {
+        @apply text-gray-600;
+    }
+
+    .kp-dt-pagination-tailwind>.kp-dt-active-tailwind>a {
+        @apply text-gray-800 font-bold;
+    }
+
+    .kp-dt-pagination-tailwind>.kp-dt-disabled-tailwind>span {
+        @apply text-gray-400 opacity-50;
+    }
+
+    /* Modal */
+    .kp-dt-modal-tailwind {
+        @apply fixed inset-0 z-50 hidden bg-black/60 overflow-y-auto p-4;
+    }
+
+    .kp-dt-modal-tailwind.kp-dt-open-tailwind {
+        @apply flex items-center justify-center;
+    }
+
+    .kp-dt-modal-dialog-tailwind {
+        @apply relative w-full max-w-xl bg-white rounded shadow-2xl;
+    }
+
+    .kp-dt-modal-body-tailwind {
+        @apply p-8;
+    }
+
+    .kp-dt-modal-title-tailwind {
+        @apply m-0 mb-4 text-2xl font-light text-gray-800;
+    }
+
+    .kp-dt-modal-close-tailwind {
+        @apply absolute top-2.5 right-2.5 p-1.5 bg-transparent border-none cursor-pointer text-gray-400;
+    }
+
+    .kp-dt-modal-close-tailwind:hover {
+        @apply text-gray-600;
+    }
+
+    /* Inline Editing */
+    .kp-dt-inline-editable-tailwind {
+        @apply cursor-pointer border-b border-dashed border-gray-400;
+    }
+
+    .kp-dt-inline-editable-tailwind:hover {
+        @apply border-blue-500;
+    }
+
+    /* Row Selection */
+    .kp-dt-row-select-tailwind {
+        @apply cursor-pointer;
+    }
+
+    /* Notifications */
+    .kp-dt-notification-tailwind {
+        @apply fixed top-5 right-5 px-5 py-4 bg-gray-800 text-white rounded shadow-lg z-50;
+        animation: kp-dt-fade-in-tailwind 0.3s;
+    }
+
+    .kp-dt-notification-success-tailwind {
+        @apply bg-green-500;
+    }
+
+    .kp-dt-notification-danger-tailwind {
+        @apply bg-red-500;
+    }
+
+    .kp-dt-notification-warning-tailwind {
+        @apply bg-amber-500;
+    }
+
+    /* Search Input with Icon */
+    .kp-dt-search-group-tailwind {
+        @apply relative;
+    }
+
+    .kp-dt-search-icon-tailwind {
+        @apply absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none;
+    }
+
+    .kp-dt-search-group-tailwind .kp-dt-input-tailwind {
+        @apply pl-10;
+    }
+
+    .kp-select2-container-tailwind {
+        @apply relative block w-full;
+    }
+
+    .kp-select2-display-tailwind {
+        @apply block w-full px-3 py-2.5 pr-10 bg-white text-gray-600 border border-gray-200 rounded cursor-pointer transition-colors duration-100;
+    }
+
+    .kp-select2-display-tailwind:hover {
+        @apply border-gray-300;
+    }
+
+    .kp-select2-display-tailwind:focus {
+        @apply outline-none border-blue-500;
+    }
+
+    .kp-select2-display-tailwind.kp-select2-open {
+        @apply border-blue-500 rounded-b-none;
+    }
+
+    .kp-select2-arrow-tailwind {
+        @apply absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none text-gray-400 transition-transform duration-200;
+    }
+
+    .kp-select2-open+.kp-select2-arrow-tailwind {
+        @apply rotate-180;
+    }
+
+    .kp-select2-dropdown-tailwind {
+        @apply absolute top-full left-0 right-0 bg-white border border-blue-500 border-t-0 rounded-b shadow-lg z-50 max-h-80 overflow-hidden flex flex-col;
+    }
+
+    .kp-select2-search-tailwind {
+        @apply block w-full px-3 py-2.5 border-0 border-b border-gray-200 bg-white text-gray-600 outline-none transition-colors duration-100;
+    }
+
+    .kp-select2-search-tailwind:focus {
+        @apply border-blue-500;
+    }
+
+    .kp-select2-results-tailwind {
+        @apply overflow-y-auto max-h-64;
+    }
+
+    .kp-select2-result-item-tailwind {
+        @apply px-3 py-2.5 cursor-pointer transition-colors duration-100 text-gray-600;
+    }
+
+    .kp-select2-result-item-tailwind:hover {
+        @apply bg-gray-50;
+    }
+
+    .kp-select2-result-item-tailwind.kp-select2-selected {
+        @apply bg-blue-500 text-white;
+    }
+
+    .kp-select2-result-item-tailwind.kp-select2-selected:hover {
+        @apply bg-blue-600;
+    }
+
+    .kp-select2-loading-tailwind,
+    .kp-select2-error-tailwind,
+    .kp-select2-no-results-tailwind {
+        @apply px-3 py-4 text-center text-gray-400 italic;
+    }
+
+    .kp-select2-error-tailwind {
+        @apply text-red-500;
+    }
+
+    .kp-select2-display-tailwind:not(.kp-select2-has-value) {
+        @apply text-gray-400;
+    }
+}
+
+@keyframes kp-dt-fade-in-tailwind {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

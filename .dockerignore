@@ -1,0 +1,48 @@
+# .dockerignore
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Documentation
+README.md
+LICENSE
+*.md
+
+# IDE/Editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+tmp/
+
+# Dependencies (if you're committing vendor)
+# vendor/
+
+# Environment files
+.env
+.env.*
+
+# Development/testing
+tests/
+test/
+*.test.php
+phpunit.xml
