@@ -7,6 +7,7 @@ RUN apk add --no-cache \
     mariadb-client \
     dcron \
     redis \
+    curl \
     # Add build dependencies as virtual package
     && apk add --no-cache --virtual .build-deps \
     $PHPIZE_DEPS \
@@ -14,15 +15,13 @@ RUN apk add --no-cache \
     # Install Redis extension
     && yes '' | pecl install redis \
     && docker-php-ext-enable redis \
-    # Cleanup build dependencies BEFORE installing jq
+    # Cleanup build dependencies
     && apk del .build-deps \
-    # Now install jq separately after build-deps are removed
-    && apk add --no-cache jq \
     # Configure MariaDB
     && mkdir -p /etc/my.cnf.d \
     && { \
     echo '[mysqld]'; \
-    echo 'bind-address = 0.0.0.0'; \
+    echo 'bind-address = 127.0.0.1'; \
     echo 'port = 3306'; \
     echo 'skip-networking = 0'; \
     echo 'innodb_ft_cache_size = 32M'; \
@@ -31,7 +30,7 @@ RUN apk add --no-cache \
     && mkdir -p /run/mysqld /var/lib/mysql \
     && chown -R mysql:mysql /run/mysqld /var/lib/mysql
 
-# Copy all config/app files
+# Copy all config/app files in one layer
 COPY config/nginx.conf /etc/nginx/http.d/default.conf
 COPY config/schema.sql /schema.sql
 COPY site/ /var/www/html/

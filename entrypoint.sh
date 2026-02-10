@@ -1,10 +1,15 @@
 #!/bin/sh
 set -e
 
-# Read database credentials from config.json using jq
-DB_SCHEMA=$(jq -r '.database.schema' /var/www/html/config.json)
-DB_USER=$(jq -r '.database.username' /var/www/html/config.json)
-DB_PASS=$(jq -r '.database.password' /var/www/html/config.json)
+# Suppress all output unless DEBUG is enabled
+if [ "${DEBUG:-false}" != "true" ]; then
+    exec > /dev/null 2>&1
+fi
+
+# Read database credentials from config.json
+DB_SCHEMA=$(sed -n '/"database":/,/"smtp":/p' /var/www/html/config.json | grep '"schema"' | head -1 | sed 's/.*"schema"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+DB_USER=$(sed -n '/"database":/,/"smtp":/p' /var/www/html/config.json | grep '"username"' | head -1 | sed 's/.*"username"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+DB_PASS=$(sed -n '/"database":/,/"smtp":/p' /var/www/html/config.json | grep '"password"' | head -1 | sed 's/.*"password"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
 
 # Use defaults if empty
 DB_SCHEMA=${DB_SCHEMA:-kptv}
@@ -13,13 +18,16 @@ DB_PASS=${DB_PASS:-kptv123}
 
 # Initialize MySQL if needed
 if [ ! -d "/var/lib/mysql/mysql" ]; then
-    echo "Initializing MySQL database..."
+
+    # Initialize the database
     /usr/bin/mariadb-install-db --user=mysql --datadir=/var/lib/mysql
     
+    # Start MySQL in the background to set up the database and user
     /usr/bin/mariadbd --user=mysql --datadir=/var/lib/mysql &
     MYSQL_PID=$!
     sleep 5
-    
+
+    # create database and user with proper permissions    
     /usr/bin/mariadb -e "CREATE DATABASE IF NOT EXISTS ${DB_SCHEMA};"
     /usr/bin/mariadb -e "CREATE USER IF NOT EXISTS '${DB_USER}'@'localhost' IDENTIFIED BY '${DB_PASS}';"
     /usr/bin/mariadb -e "CREATE USER IF NOT EXISTS '${DB_USER}'@'127.0.0.1' IDENTIFIED BY '${DB_PASS}';"
@@ -27,15 +35,15 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
     /usr/bin/mariadb -e "GRANT ALL PRIVILEGES ON ${DB_SCHEMA}.* TO '${DB_USER}'@'127.0.0.1';"
     /usr/bin/mariadb -e "FLUSH PRIVILEGES;"
     
-    echo "Importing database schema..."
+    # Import the schema
     /usr/bin/mariadb ${DB_SCHEMA} < /schema.sql
     
+    # Stop MySQL after setup
     kill $MYSQL_PID
     wait $MYSQL_PID
 fi
 
 # Start all services
-echo "Starting services..."
 redis-server --daemonize yes
 /usr/bin/mariadbd --user=mysql --datadir=/var/lib/mysql &
 crond -f -l 2 &
