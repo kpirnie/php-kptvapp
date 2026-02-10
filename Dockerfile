@@ -12,7 +12,7 @@ RUN apk add --no-cache \
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
 
 # Copy application
-COPY html/ /var/www/html/
+COPY site/ /var/www/html/
 
 # MySQL data directory
 RUN mkdir -p /run/mysqld /var/lib/mysql \
