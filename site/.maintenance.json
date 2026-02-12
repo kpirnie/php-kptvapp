@@ -1,6 +1,0 @@
-{
-    "enabled": false,
-    "allowed_ips": ["127.0.0.1", "192.168.2.0/24", "75.69.182.128"],
-    "message": "Building out the stream and playlist processers",
-    "until": "2025-12-25T15:00:00Z"
-}

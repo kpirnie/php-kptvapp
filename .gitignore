@@ -13,3 +13,4 @@ assets/data.sql
 docker-compose.yaml
 data/*
 !data/schema.sql
+site/
