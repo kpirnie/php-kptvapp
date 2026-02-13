@@ -39,3 +39,6 @@ chown -R $APP_USER:$APP_USER $APP_PATH*;
 find $APP_PATH -type d -exec chmod 755 {} \;
 find $APP_PATH -type f -exec chmod 644 {} \;
 chmod +x refresh.sh
+
+# podman build --network=host -t ghcr.io/kpirnie/kptv-app:latest .
+# podman push ghcr.io/kpirnie/kptv-app:latest

@@ -33,6 +33,10 @@ logs/
 # Cache
 .cache/
 tmp/
+site/node_modules/
+site/composer.*
+site/package.json
+site/package-lock.json
 
 # Dependencies (if you're committing vendor)
 # vendor/
