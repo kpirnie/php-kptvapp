@@ -8,7 +8,7 @@ fi
 
 CONFIG_FILE="/var/www/html/config.json"
 SQLITE_SCHEMA_FILE="/schema.sqlite.sql"
-DEFAULT_SQLITE_DB="/var/www/html/data/kptv.sqlite"
+DEFAULT_SQLITE_DB="/var/lib/data/kptv.sqlite"
 
 read_json_value() {
     key="$1"
@@ -20,12 +20,15 @@ DB_DRIVER=${DB_DRIVER:-sqlite}
 
 if [ "$DB_DRIVER" = "sqlite" ]; then
     SQLITE_PATH=$(read_json_value "sqlite_path")
-    SQLITE_PATH=${SQLITE_PATH:-./data/kptv.sqlite}
 
-    case "$SQLITE_PATH" in
-        /*) SQLITE_DB="$SQLITE_PATH" ;;
-        *) SQLITE_DB="/var/www/html/${SQLITE_PATH#./}" ;;
-    esac
+    if [ -z "$SQLITE_PATH" ]; then
+        SQLITE_DB="$DEFAULT_SQLITE_DB"
+    else
+        case "$SQLITE_PATH" in
+            /*) SQLITE_DB="$SQLITE_PATH" ;;
+            *) SQLITE_DB="/var/www/html/${SQLITE_PATH#./}" ;;
+        esac
+    fi
 
     SQLITE_DIR=$(dirname "$SQLITE_DB")
     mkdir -p "$SQLITE_DIR"

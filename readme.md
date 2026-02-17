@@ -42,7 +42,7 @@ docker pull ghcr.io/kpirnie/kptv-app:latest
 docker run -d \
   --name kptv-stream-manager \
   -p 8080:80 \
-  -v ./data:/var/www/html/data \
+  -v ./data:/var/lib/data \
   -v ./config.json:/var/www/html/config.json \
   --restart unless-stopped \
   ghcr.io/kpirnie/kptv-app:latest
@@ -53,7 +53,7 @@ docker run -d \
 Browse to `http://localhost:8080`, register an account at `/users/register`, then promote the first user to admin (role `99`) directly in the database:
 
 ```bash
-docker exec -it kptv-stream-manager sqlite3 /var/www/html/data/kptv.sqlite \
+docker exec -it kptv-stream-manager sqlite3 /var/lib/data/kptv.sqlite \
   "UPDATE kptv_users SET u_role = 99, u_active = 1 WHERE id = 1;"
 ```
 
@@ -81,7 +81,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./data:/var/www/html/data
+      - ./data:/var/lib/data
       # Required: Your application config
       - ./config.json:/var/www/html/config.json
       # Optional: Custom cron schedule
@@ -104,7 +104,7 @@ All services are managed by the entrypoint script and run inside a single Alpine
 | **Redis** | Application caching layer |
 | **cron** | Scheduled sync and missing stream checks |
 
-Database data persists via the `/var/www/html/data` volume mount.
+Database data persists via the `/var/lib/data` volume mount.
 
 ### Environment Variables
 
@@ -116,7 +116,7 @@ Database data persists via the `/var/www/html/data` volume mount.
 
 | Container Path | Purpose | Required |
 |----------------|---------|----------|
-| `/var/www/html/data` | SQLite database persistence | Yes |
+| `/var/lib/data` | SQLite database persistence | Yes |
 | `/var/www/html/config.json` | Application configuration | Yes |
 | `/etc/crontabs/root` | Custom cron schedule | No |
 

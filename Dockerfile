@@ -27,6 +27,6 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 80
-VOLUME ["/var/www/html/data"]
+VOLUME ["/var/lib/data"]
 
 ENTRYPOINT ["/entrypoint.sh"]
