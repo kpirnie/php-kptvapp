@@ -19,6 +19,9 @@ DB_PASS=${DB_PASS:-kptv123}
 # Initialize MySQL if needed
 if [ ! -d "/var/lib/mysql/mysql" ]; then
 
+    # make sure we have the right permissions on the data directory
+    chown -R mysql:mysql /var/lib/mysql
+
     # Initialize the database
     /usr/bin/mariadb-install-db --user=mysql --datadir=/var/lib/mysql
     
@@ -43,8 +46,10 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
     wait $MYSQL_PID
 fi
 
+# make sure we have the right permissions on the data directory
+chown -R mysql:mysql /var/lib/mysql
+
 # Start all services
-redis-server --daemonize yes
 /usr/bin/mariadbd --user=mysql --datadir=/var/lib/mysql &
 crond -f -l 2 &
 php-fpm &
