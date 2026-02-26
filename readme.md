@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/github/license/kpirnie/kptv-filter)](https://github.com/kpirnie/kptv-filter/blob/main/LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/kpirnie/kptv-filter)](https://github.com/kpirnie/kptv-filter/commits/main)
-[![GitHub Issues](https://img.shields.io/github/issues/kpirnie/kptv-filter)](https://github.com/kpirnie/kptv-filter/issues)
-[![Image Size (latest)](https://ghcr-badge.egpl.dev/kpirnie/kptv-app/size?tag=latest&label=image%20size)](https://github.com/kpirnie/kptv-filter/pkgs/container/kptv-app)
-[![Image Size (dev)](https://ghcr-badge.egpl.dev/kpirnie/kptv-app/size?tag=dev&label=image%20size%20(dev))](https://github.com/kpirnie/kptv-filter/pkgs/container/kptv-app)
+[![Issues](https://img.shields.io/github/issues/kpirnie/kptv-filter?color=red)](https://github.com/kpirnie/kptv-filter/issues)
+[![Size (latest)](https://ghcr-badge.egpl.dev/kpirnie/kptv-app/size?tag=latest&label=latest&color=orange)](https://github.com/kpirnie/kptv-filter/pkgs/container/kptv-app)
+[![Size (dev)](https://ghcr-badge.egpl.dev/kpirnie/kptv-app/size?tag=dev&label=dev&color=orange)](https://github.com/kpirnie/kptv-filter/pkgs/container/kptv-app)
 [![Kevin Pirnie](https://img.shields.io/badge/Kevin%20Pirnie-.com-blue)](https://kevinpirnie.com/)
 
 A containerized PHP 8.4 web application for managing IPTV streams, providers, and playlists with Xtream Codes API compatibility. Ships as a single Docker image with PHP-FPM, nginx, SQLite, Redis, and cron built in.
