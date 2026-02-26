@@ -1,5 +1,12 @@
 # KPTV Stream Manager
 
+[![Docker Build](https://github.com/kpirnie/kptv-filter/actions/workflows/docker-build.yml/badge.svg)](https://github.com/kpirnie/kptv-filter/actions/workflows/docker-build.yml)
+[![License: MIT](https://img.shields.io/github/license/kpirnie/kptv-filter)](https://github.com/kpirnie/kptv-filter/blob/main/LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/kpirnie/kptv-filter)](https://github.com/kpirnie/kptv-filter/commits/main)
+[![GitHub Issues](https://img.shields.io/github/issues/kpirnie/kptv-filter)](https://github.com/kpirnie/kptv-filter/issues)
+[![Image Size](https://ghcr-badge.egpl.dev/kpirnie/kptv-filter/size?tag=latest&label=image%20size)](https://github.com/kpirnie/kptv-filter/pkgs/container/kptv-filter)
+[![Kevin Pirnie](https://img.shields.io/badge/Kevin%20Pirnie-.com-blue)](https://kevinpirnie.com/)
+
 A containerized PHP 8.4 web application for managing IPTV streams, providers, and playlists with Xtream Codes API compatibility. Ships as a single Docker image with PHP-FPM, nginx, SQLite, Redis, and cron built in.
 
 ## Features
